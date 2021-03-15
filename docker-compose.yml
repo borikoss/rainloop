@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  rainloop:
+    build: .
+    image: rainloop:1.15
+    ports:
+      - "127.0.0.1:8888:8888"
+    volumes:
+      - ./data:/rainloop/data
+    environment:
+      - TZ=Europe/Berlin
+      - LOG_TO_STDOUT=true
+    restart: always

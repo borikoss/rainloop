@@ -12,6 +12,7 @@ fi
 # Set log output to STDOUT if wanted (LOG_TO_STDOUT=true)
 if [ "$LOG_TO_STDOUT" = true ]; then
   echo "[INFO] Logging to stdout activated"
+  echo "[INFO] Version: " $(cat /rainloop/data/VERSION || true)
   chmod o+w /dev/stdout
   sed -i "s/.*error_log.*$/error_log \/dev\/stdout warn;/" /etc/nginx/nginx.conf
   sed -i "s/.*error_log.*$/error_log = \/dev\/stdout/" /etc/php7/php-fpm.conf
